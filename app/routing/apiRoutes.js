@@ -29,15 +29,42 @@ module.exports = function (app) {
 	// Post to the API
 	app.post("/api/friends", function(req, res){
 
-		var newFriend = req.body;
-		console.log(newFriend);
+		// Incoming data from form submit
+		var userData = req.body;
+		// console.log(newFriend);
 
-		friends.push(newFriend);
+		// Convert incoming scores into numbers
+		userData.scores = parseInt(userData.scores);
 
-		return res.json(friends);
+		var lowestDifference = 1000;
+		var userNewFriend = {
+			name: "",
+			photo: ""
+		};
+
+		// friends.push(userData);
+		for(i=0; i<friends.length; i++) {
+			var difference = Math.abs(userData.scores - friends[i].scores);
+			console.log(difference);
+
+			if (difference < lowestDifference) {
+				lowestDifference = difference;
+				userNewFriend.name = friends[i].name;
+				userNewFriend.photo = friends[i].photo;
+			}
+		}
+
+		// console.log(friends);
+
+
+
+		// Sends back to the client
+		return res.json(userNewFriend);
 
 		// Decide which friend is most compatable
 
 	});
+
+
 
 }
