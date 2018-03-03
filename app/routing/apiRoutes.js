@@ -36,6 +36,8 @@ module.exports = function (app) {
 
 		return res.json(friends);
 
+		// Decide which friend is most compatable
+
 	});
 
 }
