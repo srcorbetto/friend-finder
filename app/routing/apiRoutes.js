@@ -58,8 +58,11 @@ module.exports = function (app) {
 		// Sends back to the client
 		return res.json(userNewFriend);
 
-		// Decide which friend is most compatable
+	});
 
+	// If no matching route is found default to home PUT IN API Routes
+	app.get("*", function(req, res) {
+		res.sendFile(path.join(__dirname, "../public/home.html"));
 	});
 
 }
