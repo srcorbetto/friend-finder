@@ -1,4 +1,5 @@
 var path = require("path");
+var fs = require("fs");
 
 // Import friends db
 var friends = require("../data/friends");
@@ -42,7 +43,6 @@ module.exports = function (app) {
 			photo: ""
 		};
 
-		// friends.push(userData);
 		for(i=0; i<friends.length; i++) {
 			var difference = Math.abs(userData.scores - friends[i].scores);
 			console.log(difference);
@@ -53,10 +53,7 @@ module.exports = function (app) {
 				userNewFriend.photo = friends[i].photo;
 			}
 		}
-
-		// console.log(friends);
-
-
+		friends.push(userData);
 
 		// Sends back to the client
 		return res.json(userNewFriend);
@@ -64,7 +61,5 @@ module.exports = function (app) {
 		// Decide which friend is most compatable
 
 	});
-
-
 
 }

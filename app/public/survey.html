@@ -7,20 +7,134 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-	
-	<h1>Survey</h1>
 
-	<form id="user-form">
-	  <div class="form-group">
-	    <label for="name">Name</label>
-	    <input type="text" class="form-control" id="name">
-	  </div>
-	  <div class="form-group">
-	    <label for="photo-url">Photo URL</label>
-	    <input type="text" class="form-control" id="photo-url">
-	  </div>
-	  <button type="submit" class="submit btn btn-primary">Submit</button>
-	</form>
+	<div class="container-fluid bg">
+		<div class="row pt-4">
+			<div class="col">
+				<div class="jumbotron">
+			  <h1 class="display-4">Welcome to Friend Finder</h1>
+			  <hr class="my-4">
+			 <p>Fill out the survey and see who's right for you!</p>
+			 <p> 1 is that you strongly disagree, 5 is that you strongly agree</p>
+			</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<form id="user-form" class="mb-4">
+				  <div class="form-group">
+				    <label for="name">Name</label>
+				    <input type="text" class="form-control" id="name">
+				  </div>
+				  <div class="form-group">
+				    <label for="photo-url">URL of a photo of yourself</label>
+				    <input type="text" class="form-control" id="photo-url">
+				  </div>
+				  <div class="form-group">
+				    <label for="select1">Are you attractive?</label>
+				    <select placeholder="" class="form-control" id="Select1">
+				      <option>1</option>
+				      <option>2</option>
+				      <option>3</option>
+				      <option>4</option>
+				      <option>5</option>
+				    </select>
+				  </div>
+				  <div class="form-group">
+				    <label for="Select2">Example select</label>
+				    <select class="form-control" id="Select2">
+				      <option>1</option>
+				      <option>2</option>
+				      <option>3</option>
+				      <option>4</option>
+				      <option>5</option>
+				    </select>
+				  </div>
+				  <div class="form-group">
+				    <label for="Select3">Example select</label>
+				    <select class="form-control" id="Select3">
+				      <option>1</option>
+				      <option>2</option>
+				      <option>3</option>
+				      <option>4</option>
+				      <option>5</option>
+				    </select>
+				  </div>
+				  <div class="form-group">
+				    <label for="Select4">Example select</label>
+				    <select class="form-control" id="Select4">
+				      <option>1</option>
+				      <option>2</option>
+				      <option>3</option>
+				      <option>4</option>
+				      <option>5</option>
+				    </select>
+				  </div>
+				  <div class="form-group">
+				    <label for="Select5">Example select</label>
+				    <select class="form-control" id="Select5">
+				      <option>1</option>
+				      <option>2</option>
+				      <option>3</option>
+				      <option>4</option>
+				      <option>5</option>
+				    </select>
+				  </div>
+				  <div class="form-group">
+				    <label for="Select6">Example select</label>
+				    <select class="form-control" id="Select6">
+				      <option>1</option>
+				      <option>2</option>
+				      <option>3</option>
+				      <option>4</option>
+				      <option>5</option>
+				    </select>
+				  </div>
+				  <div class="form-group">
+				    <label for="Select7">Example select</label>
+				    <select class="form-control" id="Select7">
+				      <option>1</option>
+				      <option>2</option>
+				      <option>3</option>
+				      <option>4</option>
+				      <option>5</option>
+				    </select>
+				  </div>
+				  <div class="form-group">
+				    <label for="Select8">Example select</label>
+				    <select class="form-control" id="Select8">
+				      <option>1</option>
+				      <option>2</option>
+				      <option>3</option>
+				      <option>4</option>
+				      <option>5</option>
+				    </select>
+				  </div>
+				  <div class="form-group">
+				    <label for="Select9">Example select</label>
+				    <select class="form-control" id="Select9">
+				      <option>1</option>
+				      <option>2</option>
+				      <option>3</option>
+				      <option>4</option>
+				      <option>5</option>
+				    </select>
+				  </div>
+				  <div class="form-group">
+				    <label for="Select10">Example select</label>
+				    <select class="form-control" id="Select10">
+				      <option>1</option>
+				      <option>2</option>
+				      <option>3</option>
+				      <option>4</option>
+				      <option>5</option>
+				    </select>
+				  </div>	
+				  <button type="submit" class="submit btn btn-primary">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div>
 
 	<!-- jQuery -->
 	<script
@@ -28,21 +142,23 @@
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
 
+	<!-- AJAX Request -->
   <script type="text/javascript">
   	
   	$(".submit").on("click", function(e){
   		e.preventDefault();
 
   		var userRecord = {
-  			name: "user",
+  			name: $("#name").val().trim(),
   			photo: $("#photo-url").val().trim(),
-  			scores: 50 //will add together
+  			scores: parseInt($("#Select1").val()) + parseInt($("#Select2").val()) + parseInt($("#Select3").val()) + parseInt($("#Select4").val()) + parseInt($("#Select5").val()) + parseInt($("#Select6").val()) + parseInt($("#Select7").val()) + parseInt($("#Select8").val()) + parseInt($("#Select9").val()) + parseInt($("#Select10").val())
   		};
 
   		console.log(userRecord);
 
   		$.post("/api/friends", userRecord,
   			function(data){
+  				$("h1").fadeOut();
   				console.log(data);
   			});
   	});
